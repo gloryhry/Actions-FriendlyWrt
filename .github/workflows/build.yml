@@ -1,9 +1,9 @@
 on:
   watch:
     types: started
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   prepare_release:
     runs-on: ubuntu-20.04
@@ -34,8 +34,10 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     strategy:
       matrix:
-        VERSION: [21.02, 23.05]
-        SET: [docker, non-docker]
+        # VERSION: [21.02, 23.05]
+        VERSION: [23.05]
+        # SET: [docker, non-docker]
+        SET: [docker]
 
     steps:
     - name: Checkout
